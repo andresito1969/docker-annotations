@@ -16,3 +16,14 @@ docker {container || image} rm {id} // Permite borrar un o varios contenedores o
 docker container stop {id} // Permite parar un contenedor al que se ha hecho detach
 docker container start {id} // Reanuda el contenedor parado
 
+# POSTGRES
+docker pull postgres
+
+docker container run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -dp 5432:5432 postgres // Esto pilla del repo oficial postgres y nos permite usar la BBDD
+
+### Poder tener varios contenedores corriendo a la vez
+docker container run --name postgres-alpha -e POSTGRES_PASSWORD=mypass1 -dp 5432:5432 postgres
+
+docker container run --name postgres-beta -e POSTGRES_PASSWORD=mypass1 -dp 4321:5432 postgres:14-alpine3.17
+
+// Aquí tenemos 2 contenedores corriendo de 2 imagenes distintas (2 versiones diferentes de postgres)
