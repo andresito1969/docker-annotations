@@ -1,0 +1,2 @@
+1. docker pull mariadb:11.2.5-jammy
+2. docker container run --name world-db -e MARIADB_ROOT_PASSWORD=root-secret-password -e MARIADB_PASSWORD=user-password -e MARIADB_USER=example-user -e MARIADB_DATABASE=world-db -dp 3307:3306 mariadb:11.2.5-jammy
